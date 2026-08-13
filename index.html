@@ -11,14 +11,17 @@
 <body>
   <main class="page">
     <nav class="nav" aria-label="주요 메뉴">
-      <a class="brand" href="./" aria-label="결 홈"><span class="brand-mark">결</span><span>GYEOL</span></a>
-      <a class="nav-link" href="#download">앱 다운로드</a>
+      <a class="brand" href="./" aria-label="결 홈"><span class="brand-mark">결</span><span class="brand-name">GYEOL</span></a>
+      <div class="nav-actions">
+        <span class="build-badge" aria-label="앱 빌드 버전"><span>APP 1.0.0</span><b>BUILD 1000</b></span>
+        <button class="login-trigger" id="loginTrigger" type="button" aria-haspopup="dialog" aria-controls="loginDialog">로그인</button>
+      </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-copy">
         <p class="eyebrow">MEET WITH INTENTION</p>
-        <h1>좋은 인연은<br /><em>선명한 첫인상</em>에서.</h1>
+        <h1 id="heroTitle">좋은 인연은<br /><em>선명한 첫인상</em>에서.</h1>
         <p class="lead">프로필, 사진 검수, 오늘의 추천, 대화까지. 불필요한 선택은 줄이고 서로를 알아가는 흐름에 집중했습니다.</p>
         <div class="actions" id="download">
           <a class="download" href="https://github.com/programmer119/gyeol-apk/releases/latest/download/GYEOL.apk">Android APK 다운로드 <span>↓</span></a>
@@ -26,30 +29,55 @@
         </div>
       </div>
 
-      <div class="phone" aria-label="결 앱 미리보기">
-        <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
-        <div class="app-head"><span class="app-logo">결</span><span class="pill">오늘의 인연</span></div>
-        <article class="profile-card">
-          <div class="portrait"><span>G</span></div>
-          <div class="profile-meta">
-            <div><strong>오늘, 한 사람</strong><span>서울 · 3km</span></div>
-            <button type="button" aria-label="좋아요">♡</button>
-          </div>
-          <p>속도보다 방향이 맞는 대화를 좋아해요.</p>
-          <div class="tags"><span>대화</span><span>산책</span><span>커피</span></div>
-        </article>
-        <div class="bottom-nav"><span>⌂<small>오늘</small></span><span>◎<small>라운지</small></span><span>♡<small>인연</small></span><span>◌<small>내 정보</small></span></div>
+      <div class="preview-column">
+        <div class="phone" aria-label="결 앱 미리보기">
+          <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
+          <div class="app-head"><span class="app-logo">결</span><span class="pill">오늘의 인연</span></div>
+          <article class="profile-card">
+            <div class="portrait"><span>G</span></div>
+            <div class="profile-meta">
+              <div><strong>오늘, 한 사람</strong><span>서울 · 3km</span></div>
+              <button type="button" aria-label="좋아요">♡</button>
+            </div>
+            <p>속도보다 방향이 맞는 대화를 좋아해요.</p>
+            <div class="tags"><span>대화</span><span>산책</span><span>커피</span></div>
+          </article>
+          <div class="bottom-nav"><span>⌂<small>오늘</small></span><span>◎<small>라운지</small></span><span>♡<small>인연</small></span><span>◌<small>내 정보</small></span></div>
+        </div>
       </div>
     </section>
 
-    <section class="principles">
+    <section class="principles" aria-label="결 서비스 원칙">
       <article><span>01</span><h2>확인된 사진</h2><p>얼굴 사진 검수 흐름으로 프로필 신뢰도를 높입니다.</p></article>
       <article><span>02</span><h2>덜 복잡한 선택</h2><p>하루의 추천과 핵심 정보에 집중해 결정 피로를 줄입니다.</p></article>
       <article><span>03</span><h2>안전한 연결</h2><p>신고·차단과 운영 검수 기능을 기본 흐름 안에 배치했습니다.</p></article>
     </section>
 
-    <footer><span>© 2026 GYEOL</span><a href="./admin/">운영자 로그인</a></footer>
+    <footer><span>© 2026 GYEOL</span><span>APP 1.0.0 · BUILD 1000</span></footer>
   </main>
+
+  <div class="login-dialog-backdrop" id="loginDialog" hidden>
+    <section class="login-dialog" role="dialog" aria-modal="true" aria-labelledby="loginDialogTitle">
+      <button class="dialog-close" id="loginClose" type="button" aria-label="로그인 창 닫기">×</button>
+      <p class="dialog-eyebrow">CLIENT REVIEW ACCESS</p>
+      <h2 id="loginDialogTitle">어떤 화면을 확인할까요?</h2>
+      <p class="dialog-copy">관리자와 일반 사용자 화면을 계정 유형에 맞게 바로 확인할 수 있습니다.</p>
+      <div class="login-type-grid">
+        <a class="login-type-card admin" href="./admin/">
+          <span class="type-icon">⌘</span>
+          <span><strong>관리자</strong><small>회원·사진·신고·라운지·고객지원·감사로그</small></span>
+          <b>운영 콘솔 →</b>
+        </a>
+        <a class="login-type-card user" href="./app/">
+          <span class="type-icon">♡</span>
+          <span><strong>일반 사용자</strong><small>실제 USER 검수 계정으로 오늘·라운지·신청·대화·내 정보 확인</small></span>
+          <b>사용자 앱 열기 →</b>
+        </a>
+      </div>
+      <div class="review-note"><strong>클라이언트 검수</strong><span>일반 사용자는 실제 USER 계정으로 로그인됩니다. 관리자 검수 링크를 받은 경우 링크를 그대로 열면 접근 키가 자동 입력됩니다. 관리자 키는 공개 웹 소스에 저장하지 않습니다.</span></div>
+    </section>
+  </div>
+
   <script src="./app.js"></script>
 </body>
 </html>
