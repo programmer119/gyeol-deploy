@@ -3,34 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#fff8f6" />
+  <meta name="theme-color" content="#fff9f7" />
   <meta name="description" content="결 — 관계의 시작을 가볍고 선명하게." />
   <title>결 · GYEOL</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <main class="page">
-    <nav class="nav" aria-label="주요 메뉴">
-      <a class="brand" href="./" aria-label="결 홈"><span class="brand-mark">결</span><span class="brand-name">GYEOL</span></a>
-      <div class="nav-actions">
-        <span class="build-badge" aria-label="앱 빌드 버전"><span>APP 1.0.0</span><b>BUILD 1000</b></span>
+  <main class="site-shell">
+    <nav class="topbar" aria-label="주요 메뉴">
+      <a class="brand" href="./" aria-label="결 홈">
+        <span class="brand-mark">결</span>
+        <span class="brand-copy"><strong>GYEOL</strong><small>MEET WITH INTENTION</small></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="version-chip" aria-label="앱 버전"><i></i><span>v1.0.0</span><em>1000</em></span>
         <button class="login-trigger" id="loginTrigger" type="button" aria-haspopup="dialog" aria-controls="loginDialog">로그인</button>
       </div>
     </nav>
 
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-copy">
-        <p class="eyebrow">MEET WITH INTENTION</p>
+        <p class="eyebrow">좋은 인연을 위한 더 선명한 시작</p>
         <h1 id="heroTitle">좋은 인연은<br /><em>선명한 첫인상</em>에서.</h1>
         <p class="lead">프로필, 사진 검수, 오늘의 추천, 대화까지. 불필요한 선택은 줄이고 서로를 알아가는 흐름에 집중했습니다.</p>
-        <div class="actions" id="download">
-          <a class="download" href="https://github.com/programmer119/gyeol-apk/releases/latest/download/GYEOL.apk">Android APK 다운로드 <span>↓</span></a>
-          <span class="download-note">최신 공개 빌드 · Android</span>
+        <div class="hero-actions" id="download">
+          <a class="download" href="https://github.com/programmer119/gyeol-apk/releases/latest/download/GYEOL.apk">Android APK 다운로드 <span aria-hidden="true">↓</span></a>
+          <button class="text-action" id="heroLoginTrigger" type="button">웹에서 둘러보기 <span>→</span></button>
+        </div>
+        <div class="trust-row" aria-label="서비스 핵심 기능">
+          <span>사진 검수</span><span>오늘의 추천</span><span>안전한 연결</span>
         </div>
       </div>
 
-      <div class="preview-column">
-        <div class="phone" aria-label="결 앱 미리보기">
+      <div class="hero-visual" aria-label="결 앱 미리보기">
+        <div class="visual-glow"></div>
+        <div class="phone">
           <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
           <div class="app-head"><span class="app-logo">결</span><span class="pill">오늘의 인연</span></div>
           <article class="profile-card">
@@ -53,28 +60,45 @@
       <article><span>03</span><h2>안전한 연결</h2><p>신고·차단과 운영 검수 기능을 기본 흐름 안에 배치했습니다.</p></article>
     </section>
 
-    <footer><span>© 2026 GYEOL</span><span>APP 1.0.0 · BUILD 1000</span></footer>
+    <footer><span>© 2026 GYEOL</span><span>관계를 시작하는 더 좋은 방식</span></footer>
   </main>
 
   <div class="login-dialog-backdrop" id="loginDialog" hidden>
     <section class="login-dialog" role="dialog" aria-modal="true" aria-labelledby="loginDialogTitle">
       <button class="dialog-close" id="loginClose" type="button" aria-label="로그인 창 닫기">×</button>
-      <p class="dialog-eyebrow">CLIENT REVIEW ACCESS</p>
-      <h2 id="loginDialogTitle">어떤 화면을 확인할까요?</h2>
-      <p class="dialog-copy">관리자와 일반 사용자 화면을 계정 유형에 맞게 바로 확인할 수 있습니다.</p>
-      <div class="login-type-grid">
-        <a class="login-type-card admin" href="./admin/">
-          <span class="type-icon">⌘</span>
-          <span><strong>관리자</strong><small>회원·사진·신고·라운지·고객지원·감사로그</small></span>
-          <b>운영 콘솔 →</b>
-        </a>
-        <a class="login-type-card user" href="./app/">
-          <span class="type-icon">♡</span>
-          <span><strong>일반 사용자</strong><small>실제 USER 검수 계정으로 오늘·라운지·신청·대화·내 정보 확인</small></span>
-          <b>사용자 앱 열기 →</b>
-        </a>
+      <div class="dialog-heading">
+        <span class="dialog-brand">결</span>
+        <div><p>GYEOL ACCOUNT</p><h2 id="loginDialogTitle">로그인</h2></div>
       </div>
-      <div class="review-note"><strong>클라이언트 검수</strong><span>일반 사용자는 실제 USER 계정으로 로그인됩니다. 관리자 검수 링크를 받은 경우 링크를 그대로 열면 접근 키가 자동 입력됩니다. 관리자 키는 공개 웹 소스에 저장하지 않습니다.</span></div>
+
+      <div class="role-tabs" role="tablist" aria-label="계정 유형">
+        <button class="role-tab active" type="button" data-role="USER" role="tab" aria-selected="true">일반 사용자</button>
+        <button class="role-tab" type="button" data-role="ADMIN" role="tab" aria-selected="false">관리자</button>
+      </div>
+
+      <form class="auth-form" id="authForm" novalidate>
+        <div class="auth-mode-row" id="authModeRow">
+          <strong id="authModeTitle">보유한 계정으로 로그인</strong>
+          <button id="authModeToggle" type="button">회원가입</button>
+        </div>
+
+        <label class="field"><span>이메일</span><input id="authEmail" name="email" type="email" autocomplete="email" placeholder="name@example.com" required /></label>
+        <label class="field"><span>비밀번호</span><input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="10" placeholder="10자 이상" required /></label>
+        <label class="field signup-only" id="confirmField" hidden><span>비밀번호 확인</span><input id="authConfirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="10" /></label>
+        <label class="agreement signup-only" id="agreementField" hidden><input id="authAgreement" type="checkbox" /><span>만 18세 이상이며 이용약관과 개인정보 처리방침에 동의합니다.</span></label>
+
+        <div class="auth-error" id="authError" role="alert" hidden></div>
+        <button class="auth-submit" id="authSubmit" type="submit">로그인</button>
+      </form>
+
+      <section class="review-account" aria-label="클라이언트 검수 계정">
+        <div class="review-account-head"><div><span class="review-dot"></span><strong>클라이언트 검수 계정</strong></div><small>실제 생성 계정</small></div>
+        <div class="review-credential"><span>이메일</span><code id="reviewEmail">client.user@gyeol.suaveforge.com</code></div>
+        <div class="review-credential"><span>비밀번호</span><code id="reviewPassword">GyeolClient!2026</code></div>
+        <button class="review-fill" id="reviewFill" type="button">테스트 계정 자동 입력</button>
+      </section>
+
+      <p class="dialog-footnote" id="dialogFootnote">일반 사용자는 로그인과 회원가입 모두 가능합니다. 검수 계정은 클라이언트 기능 확인용입니다.</p>
     </section>
   </div>
 
