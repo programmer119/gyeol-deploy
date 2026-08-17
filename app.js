@@ -143,7 +143,10 @@ async function submitAuth(event){
     }
     throw new Error('이 계정으로 이동할 화면을 확인할 수 없습니다.');
   }catch(error){
-    setError(error instanceof Error?error.message:'로그인에 실패했습니다.');
+    const message=error instanceof TypeError&&/fetch/i.test(String(error.message||''))
+      ?'로그인 서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.'
+      :(error instanceof Error?error.message:'로그인에 실패했습니다.');
+    setError(message);
   }finally{
     submitting=false;
     authSubmit.disabled=false;
