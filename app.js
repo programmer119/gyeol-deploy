@@ -58,8 +58,8 @@ function renderAuthState(){
   if(confirmField)confirmField.hidden=!signup;
   if(agreementField)agreementField.hidden=!signup;
   if(authPassword)authPassword.autocomplete=signup?'new-password':'current-password';
-  if(authConfirmPassword)authConfirmPassword.required=signup;
-  if(authAgreement)authAgreement.required=signup;
+  if(authConfirmPassword){authConfirmPassword.required=signup;authConfirmPassword.disabled=!signup;}
+  if(authAgreement){authAgreement.required=signup;authAgreement.disabled=!signup;}
   if(authSubmit)authSubmit.textContent=signup?'회원가입':'로그인';
   if(dialogFootnote)dialogFootnote.textContent=signup
     ?'가입이 완료되면 사용자 앱으로 바로 이동합니다.'
